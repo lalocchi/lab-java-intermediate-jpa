@@ -11,6 +11,10 @@ import javax.naming.Name;
 public class Contact {
     //Names should be embedded within the Contact entity and not be stored in a separate table.
 
+    @Id
+    @GeneratedValue
+    private int id;
+
     @Column(nullable = false,length = 60)
     private String title;
 
@@ -23,10 +27,15 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(String title, String company, Name name) {
+    public Contact(int id,String title, String company, Name name) {
+        this.id=id;
         this.title = title;
         this.company = company;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {
