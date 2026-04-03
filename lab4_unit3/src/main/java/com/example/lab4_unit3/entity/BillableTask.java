@@ -1,5 +1,8 @@
 package com.example.lab4_unit3.entity;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class BillableTask extends Task{
     //BillableTask have an additional hourlyRate attribute.
     private double hourlyRate;

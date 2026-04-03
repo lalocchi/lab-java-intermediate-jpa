@@ -10,12 +10,19 @@ package com.example.lab4_unit3.entity;
 
 // Explain why you would choose to use native SQL over JPQL for these specific tasks.
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     //Tasks have a title, dueDate and a boolean status.
     @Column (nullable = false,length = 60)
     private String title;
